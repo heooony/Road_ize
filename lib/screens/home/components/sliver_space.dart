@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:chickpea/utilities/constants.dart';
+
+import '../../../utilities/constants.dart';
 
 class SliverSpace extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class SliverSpace extends StatelessWidget {
         Container(
           height: size.height,
           decoration: BoxDecoration(
-              color: kSubColor4,
+              color: kMainColor2,
               borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(40.0),
                   bottomLeft: Radius.circular(40.0))),
@@ -73,7 +74,7 @@ class SliverSpace extends StatelessWidget {
                 BoxShadow(
                     offset: Offset(0, 10),
                     blurRadius: 20.0,
-                    color: kSubColor3.withOpacity(0.2))
+                    color: kMainColor2.withOpacity(0.2))
               ]),
               child: TextField(
                 style: TextStyle(

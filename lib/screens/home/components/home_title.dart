@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:chickpea/utilities/constants.dart';
+
+import '../../../utilities/constants.dart';
 
 class HomeTitle extends StatelessWidget {
   HomeTitle({this.title});
@@ -16,7 +17,7 @@ class HomeTitle extends StatelessWidget {
           child: Container(
             width: size.width * 0.2,
             height: 10.0,
-            color: kMainColor3.withOpacity(0.4),
+            color: kMainColor2.withOpacity(0.4),
           ),
         ),
         Row(

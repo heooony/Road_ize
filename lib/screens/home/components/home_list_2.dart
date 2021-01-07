@@ -1,6 +1,6 @@
-import 'package:chickpea/screens/home/components/long_card.dart';
 import 'package:flutter/material.dart';
 import './home_title.dart';
+import 'long_card.dart';
 
 class HomeList2 extends StatelessWidget {
   @override

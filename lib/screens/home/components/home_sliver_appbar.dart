@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:chickpea/screens/home/components/sliver_space.dart';
+
+import 'sliver_space.dart';
 
 class HomeSliverAppBar extends StatelessWidget {
   @override

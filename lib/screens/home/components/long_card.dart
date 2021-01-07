@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:chickpea/utilities/constants.dart';
+
+import '../../../utilities/constants.dart';
 
 class LongCard extends StatelessWidget {
   LongCard({@required this.title, @required this.subtitle});

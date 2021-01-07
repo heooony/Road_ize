@@ -1,4 +1,4 @@
-package com.application.chickpea
+package com.application.roadize
 
 import io.flutter.embedding.android.FlutterActivity
 

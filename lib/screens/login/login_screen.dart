@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:chickpea/utilities/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../utilities/constants.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: kSubColor4,
+      backgroundColor: kMainColor2,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -81,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   FlatButton(
-                      color: kSubColor3,
+                      color: kMainColor1,
                       height: 40.0,
                       onPressed: () {},
                       child: Text(
