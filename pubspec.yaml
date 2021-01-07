@@ -1,0 +1,43 @@
+name: chickpea
+description: A new Flutter application.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.0
+  sign_button: ^1.0.1 #https://pub.dev/packages/sign_button
+  flutter_svg: ^0.19.1
+  flutter_screenutil: ^4.0.2+2 #https://pub.dev/packages/flutter_screenutil/install
+  sliver_fill_remaining_box_adapter: ^0.1.1
+  fl_chart: ^0.12.2
+  date_format: ^1.0.9 #https://pub.dev/packages/date_format/install
+  intl: ^0.16.1 #https://pub.dev/packages/intl
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - images/
+    - images/icons/
+    -
+  fonts:
+    - family: nexon_light
+      fonts:
+        - asset: fonts/nexon_light.otf
+    - family: nexon2_light
+      fonts:
+        - asset: fonts/nexon2_light.otf
+    - family: nexon_medium
+      fonts:
+        - asset: fonts/nexon_medium.ttf
