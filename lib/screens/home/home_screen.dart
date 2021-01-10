@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../utilities/constants.dart';
+import '../../constants.dart';
 import './components/home_sliver_appbar.dart';
 import './components/home_list_1.dart';
 import 'components/home_list_2.dart';

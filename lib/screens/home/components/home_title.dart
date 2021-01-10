@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../utilities/constants.dart';
+import '../../../constants.dart';
 
 class HomeTitle extends StatelessWidget {
-  HomeTitle({this.title});
+  HomeTitle({@required this.title, this.onTap});
   final title;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class HomeTitle extends StatelessWidget {
           child: Container(
             width: size.width * 0.2,
             height: 10.0,
-            color: kMainColor2.withOpacity(0.4),
+            color: kPrimaryColor.withOpacity(0.4),
           ),
         ),
         Row(
@@ -32,7 +33,7 @@ class HomeTitle extends StatelessWidget {
                 'See all',
                 style: TextStyle(color: Colors.blue),
               ),
-              onTap: () {},
+              onTap: onTap,
             )
           ],
         ),

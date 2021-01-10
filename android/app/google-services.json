@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "507920216982",
+    "project_id": "road-ize-37668",
+    "storage_bucket": "road-ize-37668.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507920216982:android:c7dc7419863ed75edb63b7",
+        "android_client_info": {
+          "package_name": "com.application.roadize"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "507920216982-tnr2ksri5jo7ft54hmg6s85pm74kma4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOJQ8cb97DNIaA1cosXuQh_hXHibKqYIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "507920216982-tnr2ksri5jo7ft54hmg6s85pm74kma4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../utilities/constants.dart';
+import '../../../constants.dart';
 
 class ShortCard extends StatelessWidget {
   ShortCard({this.title, this.press, this.colours});
@@ -28,7 +28,7 @@ class ShortCard extends StatelessWidget {
                     BoxShadow(
                         offset: Offset(0, 10),
                         blurRadius: 20.0,
-                        color: kMainColor4.withOpacity(0.2))
+                        color: kPrimaryLightColor.withOpacity(0.2))
                   ]),
               child: Center(
                 child: Text(

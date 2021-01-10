@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:roadize/constants.dart';
+import 'package:roadize/screens/first/first_screen.dart';
+import 'package:roadize/size_config.dart';
 import 'screens/home/home_screen.dart';
 
 void main() {
@@ -11,9 +14,16 @@ class MainScreen extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'nexon_light',
-      ),
-      home: SafeArea(child: HomeScreen()),
+          fontFamily: 'nexon_light',
+          textTheme: TextTheme(
+              bodyText1: TextStyle(color: kTextColor),
+              bodyText2: TextStyle(color: kTextColor),
+              headline1: TextStyle(
+                  color: kPrimaryColor,
+                  fontSize: 45.0,
+                  fontWeight: FontWeight.normal),
+              headline2: TextStyle(color: kTextColor, fontSize: 20.0))),
+      home: SafeArea(child: FirstScreen()),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../utilities/constants.dart';
+import '../../../constants.dart';
 
 class LongCard extends StatelessWidget {
   LongCard({@required this.title, @required this.subtitle});
