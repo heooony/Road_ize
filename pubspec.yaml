@@ -21,6 +21,7 @@ dependencies:
   fl_chart: ^0.12.2
   date_format: ^1.0.9 #https://pub.dev/packages/date_format/install
   intl: ^0.16.1 #https://pub.dev/packages/intl
+  animations: ^1.1.2 #https://pub.dev/packages/animations
 
   firebase_auth: ^0.18.4+1
   firebase_core: ^0.5.3

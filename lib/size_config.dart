@@ -5,6 +5,8 @@ class SizeConfig {
   static double screenWidth;
   static double screenHeight;
   static double defaultSize;
+  static double statusBarHeight;
+  static double safeAreaScreenHeight;
   static Orientation orientation;
 
   static void init(BuildContext context) {
@@ -12,6 +14,8 @@ class SizeConfig {
     screenWidth = _mediaQueryData.size.width;
     screenHeight = _mediaQueryData.size.height;
     orientation = _mediaQueryData.orientation;
+    statusBarHeight = _mediaQueryData.padding.top;
+    safeAreaScreenHeight = screenHeight - statusBarHeight;
   }
 }
 
