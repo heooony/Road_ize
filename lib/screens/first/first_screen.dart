@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:roadize/screens/login/login_screen.dart';
+import 'package:roadize/screens/login/sign_in_screen.dart';
 import 'package:roadize/size_config.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:roadize/constants.dart';
@@ -27,7 +27,7 @@ class FirstScreen extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                      MaterialPageRoute(builder: (context) => SignInScreen()));
                 },
                 child: Container(
                   width: getProportionateScreenWidth(120.0),
