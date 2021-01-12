@@ -1,10 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:roadize/constants.dart';
 import 'package:roadize/screens/first/first_screen.dart';
 import 'package:roadize/size_config.dart';
 import 'screens/home/home_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MainScreen());
 }
 

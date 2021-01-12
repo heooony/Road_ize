@@ -12,9 +12,38 @@ class MyFirebase {
   static final store = FirebaseFirestore.instance;
   static GoogleSignIn googleSignIn = GoogleSignIn();
   static User currentUser;
-  static String name = '';
   static String email = '';
+  static String password = '';
+  static String confirmPassword = '';
+  static String name = '';
   static String url = '';
+
+  static reset() {
+    email = '';
+    password = '';
+    confirmPassword = '';
+    name = '';
+    url = '';
+  }
+
+  static Future<void> authCreateUser() async {
+    try {
+      await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+    } catch (e) {
+      return e;
+    }
+  }
+
+  static Future<bool> authSignInUser() async {
+    try {
+      await auth.signInWithEmailAndPassword(email: email, password: password);
+      currentUser = auth.currentUser;
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
 
   // static Future<String> gSignIn() async {
   //   final GoogleSignInAccount account = await googleSignIn.signIn();
