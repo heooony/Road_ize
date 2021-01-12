@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roadize/firebase.dart';
 import 'package:roadize/screens/login/sign_up_screen.dart';
 import 'package:roadize/size_config.dart';
 

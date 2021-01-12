@@ -23,9 +23,10 @@ class _SignInScreenState extends State<SignInScreen> {
                 Expanded(
                   flex: 1,
                   child: Container(
+                    margin: EdgeInsets.all(kDefaultPadding),
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('images/wow.jpg'))),
+                        image:
+                            DecorationImage(image: AssetImage('images/2.png'))),
                   ),
                 ),
                 Expanded(

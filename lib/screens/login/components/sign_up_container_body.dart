@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roadize/firebase.dart';
 import 'package:roadize/screens/login/components/rounded_button.dart';
 import 'package:roadize/screens/login/components/text_component.dart';
 import '../../../constants.dart';
@@ -32,24 +33,36 @@ class _SignUpContainerBodyState extends State<SignUpContainerBody> {
           TextComponent(
             title: 'USERNAME',
             hintText: 'EMAIL OR ID',
+            tag: 'email',
           ),
           Spacer(),
           TextComponent(
             title: 'PASSWORD',
             hintText: 'Password',
+            tag: 'password',
+            errorText: 'Passwords do not match',
           ),
           Spacer(),
           TextComponent(
             title: 'CONFIRM PASSWORD',
             hintText: 'CONFIRM PASSWORD',
+            tag: 'confirmPassword',
+            errorText: 'Passwords do not match',
           ),
           Spacer(
             flex: 2,
           ),
           RoundedButton(
             text: 'SIGN UP',
-            onTap: () {
-              Navigator.pop(context);
+            onTap: () async {
+              if (MyFirebase.password == MyFirebase.confirmPassword) {
+                MyFirebase.authCreateUser()
+                    .then((value) => Navigator.pop(context));
+              } else {
+                setState(() {
+                  TextComponent.validate2 = false;
+                });
+              }
             },
           ),
           Spacer(

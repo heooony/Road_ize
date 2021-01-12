@@ -35,9 +35,10 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   Expanded(
                       child: Container(
+                    margin: EdgeInsets.all(kDefaultPadding),
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('images/wow.jpg'))),
+                        image:
+                            DecorationImage(image: AssetImage('images/6.png'))),
                   ))
                 ],
               ),
