@@ -27,7 +27,9 @@ class _TextComponentState extends State<TextComponent> {
         ),
         TextField(
           style: TextStyle(fontSize: 12.0),
-          autofocus: false,
+          keyboardType: widget.tag == 'email'
+              ? TextInputType.emailAddress
+              : TextInputType.text,
           onChanged: (newValue) {
             if (widget.tag == 'email')
               MyFirebase.email = newValue;
