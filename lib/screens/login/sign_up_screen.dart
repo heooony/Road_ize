@@ -37,8 +37,8 @@ class SignUpScreen extends StatelessWidget {
                       child: Container(
                     margin: EdgeInsets.all(kDefaultPadding),
                     decoration: BoxDecoration(
-                        image:
-                            DecorationImage(image: AssetImage('images/6.png'))),
+                        image: DecorationImage(
+                            image: AssetImage('images/logo.png'))),
                   ))
                 ],
               ),

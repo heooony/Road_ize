@@ -25,8 +25,8 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: Container(
                     margin: EdgeInsets.all(kDefaultPadding),
                     decoration: BoxDecoration(
-                        image:
-                            DecorationImage(image: AssetImage('images/2.png'))),
+                        image: DecorationImage(
+                            image: AssetImage('images/logo.png'))),
                   ),
                 ),
                 Expanded(
