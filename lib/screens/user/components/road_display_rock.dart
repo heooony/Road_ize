@@ -26,8 +26,6 @@ class RoadDisplayRack extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               RoadCard(),
-              RoadCard(),
-              RoadCard(),
             ],
           ),
         )
@@ -56,6 +54,7 @@ class RoadCard extends StatelessWidget {
                 image: AssetImage('images/login_background.jpg'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.srgbToLinearGamma()),
+            borderRadius: BorderRadius.circular(5.0),
             boxShadow: [
               BoxShadow(
                   offset: Offset(0, -5),

@@ -8,10 +8,7 @@ class UserInterface extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return Container(
-      padding: EdgeInsets.only(
-          top: kDefaultPadding * 3,
-          left: kDefaultPadding,
-          right: kDefaultPadding),
+      padding: EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
