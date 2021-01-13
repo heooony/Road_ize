@@ -23,10 +23,10 @@ class _TextComponentState extends State<TextComponent> {
       children: [
         Text(
           widget.title,
-          style: TextStyle(fontSize: 20.0),
+          style: TextStyle(fontSize: 16.0),
         ),
         TextField(
-          style: TextStyle(fontSize: 15.0),
+          style: TextStyle(fontSize: 12.0),
           autofocus: false,
           onChanged: (newValue) {
             if (widget.tag == 'email')

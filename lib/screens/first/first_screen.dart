@@ -45,13 +45,10 @@ class _FirstScreenState extends State<FirstScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'ROAD_IZE',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: SizeConfig.screenWidth * 0.1),
+                Image.asset(
+                  'images/logo.png',
+                  scale: 2.5,
                 ),
-                SizedBox(height: getProportionateScreenHeight(17.0)),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -67,7 +64,7 @@ class _FirstScreenState extends State<FirstScreen> {
                         fadeHeight ? getProportionateScreenHeight(40.0) : 3.0,
                     child: Center(
                       child: Text(
-                        'Join',
+                        'START',
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
