@@ -22,6 +22,8 @@ dependencies:
   date_format: ^1.0.9 #https://pub.dev/packages/date_format/install
   intl: ^0.16.1 #https://pub.dev/packages/intl
   animations: ^1.1.2 #https://pub.dev/packages/animations
+  bottom_bar_line: ^0.1.1 #https://pub.dev/packages/bottom_bar_line
+  font_awesome_flutter: ^8.11.0 #https://pub.dev/packages/font_awesome_flutter
 
   firebase_auth: ^0.18.4+1
   firebase_core: ^0.5.3
