@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:roadize/constants.dart';
 import 'package:roadize/size_config.dart';
 
-import 'components/road_function.dart';
+import 'components/road_reaction.dart';
+import 'components/road_post.dart';
 import 'components/road_information.dart';
 import 'components/road_profile.dart';
 
@@ -12,26 +13,30 @@ class RoadScreen extends StatefulWidget {
 }
 
 class _RoadScreenState extends State<RoadScreen> {
-  ScrollController _scrollController = new ScrollController(
-    initialScrollOffset: 0.0,
-    keepScrollOffset: true,
-  );
-
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
+        body: CustomScrollView(
+          slivers: [
             RoadProfile(),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                RoadFunction(),
-                RoadInformation(),
-              ],
-            )
+            SliverToBoxAdapter(
+              child: Scrollbar(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    RoadPost(),
+                    RoadPost(),
+                    RoadPost(),
+                    RoadPost(),
+                    RoadPost()
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

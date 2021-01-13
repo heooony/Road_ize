@@ -15,6 +15,9 @@ class RoadInformation extends StatelessWidget {
             height: 10.0,
           ),
           RoadDetails(),
+          SizedBox(
+            height: 40.0,
+          )
         ],
       ),
     );

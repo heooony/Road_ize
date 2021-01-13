@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roadize/screens/place/place_screen.dart';
 import 'package:roadize/size_config.dart';
 
 class RoadImages extends StatelessWidget {
@@ -14,12 +15,16 @@ class RoadImages extends StatelessWidget {
           return Row(
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PlaceScreen()));
+                },
                 child: Container(
                   width: SizeConfig.screenHeight * 0.13,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('images/1.jpg'), fit: BoxFit.cover)),
+                          image: AssetImage('images/1.jpg'),
+                          fit: BoxFit.cover)),
                 ),
               ),
               Container(
