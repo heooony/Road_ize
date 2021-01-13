@@ -3,8 +3,8 @@ import 'package:roadize/firebase.dart';
 import 'package:roadize/screens/home/home_screen.dart';
 import 'package:roadize/screens/login/components/rounded_button.dart';
 import 'package:roadize/screens/login/components/text_component.dart';
+import 'package:roadize/screens/login/sign_up_screen.dart';
 import '../../../constants.dart';
-import '../sign_up_screen.dart';
 import 'bottom_text.dart';
 
 class SignInContainerBody extends StatefulWidget {
@@ -24,12 +24,12 @@ class _SignInContainerBodyState extends State<SignInContainerBody> {
           Text(
             'Sign In',
             style: TextStyle(
-              fontSize: 40.0,
+              fontSize: 35.0,
               color: Colors.black,
             ),
           ),
           Spacer(
-            flex: 3,
+            flex: 2,
           ),
           TextComponent(
             title: 'USERNAME',
@@ -79,7 +79,9 @@ class _SignInContainerBodyState extends State<SignInContainerBody> {
             firstText: 'Forget Password? ',
             secondText: 'Find it',
           ),
-          Spacer()
+          Spacer(
+            flex: 2,
+          )
         ],
       ),
     );

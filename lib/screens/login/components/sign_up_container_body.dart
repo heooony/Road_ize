@@ -28,7 +28,7 @@ class _SignUpContainerBodyState extends State<SignUpContainerBody> {
             ),
           ),
           Spacer(
-            flex: 3,
+            flex: 2,
           ),
           TextComponent(
             title: 'USERNAME',
@@ -53,7 +53,7 @@ class _SignUpContainerBodyState extends State<SignUpContainerBody> {
             flex: 2,
           ),
           RoundedButton(
-            text: 'SIGN UP',
+            text: 'CREATE',
             onTap: () async {
               if (MyFirebase.password == MyFirebase.confirmPassword) {
                 MyFirebase.authCreateUser()
