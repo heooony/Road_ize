@@ -13,17 +13,15 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.0
-  sign_button: ^1.0.1 #https://pub.dev/packages/sign_button
   flutter_svg: ^0.19.1
   provider: ^4.3.1
-  flutter_screenutil: ^4.0.2+2 #https://pub.dev/packages/flutter_screenutil/install
-  sliver_fill_remaining_box_adapter: ^0.1.1
   fl_chart: ^0.12.2
   date_format: ^1.0.9 #https://pub.dev/packages/date_format/install
   intl: ^0.16.1 #https://pub.dev/packages/intl
   animations: ^1.1.2 #https://pub.dev/packages/animations
   bottom_bar_line: ^0.1.1 #https://pub.dev/packages/bottom_bar_line
-  font_awesome_flutter: ^8.11.0 #https://pub.dev/packages/font_awesome_flutter
+  flutter_simple_rating_bar: 0.0.3 #https://pub.dev/packages/flutter_simple_rating_bar/install
+  flutter_rating_bar: ^3.2.0+1 #https://pub.dev/packages/flutter_rating_bar
 
   firebase_auth: ^0.18.4+1
   firebase_core: ^0.5.3
