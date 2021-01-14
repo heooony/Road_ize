@@ -14,18 +14,11 @@ class RoadImages extends StatelessWidget {
         itemBuilder: (context, index) {
           return Row(
             children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => PlaceScreen()));
-                },
-                child: Container(
-                  width: SizeConfig.screenHeight * 0.13,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('images/1.jpg'),
-                          fit: BoxFit.cover)),
-                ),
+              Container(
+                width: SizeConfig.screenHeight * 0.13,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('images/1.jpg'), fit: BoxFit.cover)),
               ),
               Container(
                 width: SizeConfig.screenHeight * 0.13,
