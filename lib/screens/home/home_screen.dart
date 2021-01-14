@@ -2,7 +2,6 @@ import 'package:bottom_bar_line/bottom_bar_line_item.dart';
 import 'package:bottom_bar_line/bottom_bar_line_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadize/constants.dart';
 import 'package:roadize/screens/user/user_screen.dart';
 
