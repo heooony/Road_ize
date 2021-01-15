@@ -22,7 +22,7 @@ class _PlaceImageState extends State<PlaceImage> {
           child: PageView(
             onPageChanged: (value) {
               setState(() {
-                //currentPage = value;
+                currentPage = value;
               });
             },
             children: [

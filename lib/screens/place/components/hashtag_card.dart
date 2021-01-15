@@ -16,9 +16,9 @@ class HashTagCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(5.0),
           boxShadow: [
             BoxShadow(
-                offset: Offset(10, 10),
+                offset: Offset(3, 3),
                 color: Colors.black.withOpacity(0.12),
-                blurRadius: 10.0),
+                blurRadius: 3.0),
             BoxShadow(
                 offset: Offset(-10, -10),
                 color: Colors.white.withOpacity(0.2),
