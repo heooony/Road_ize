@@ -14,7 +14,6 @@ dependencies:
 
   cupertino_icons: ^1.0.0
   flutter_svg: ^0.19.1
-  provider: ^4.3.1
   fl_chart: ^0.12.2
   date_format: ^1.0.9 #https://pub.dev/packages/date_format/install
   intl: ^0.16.1 #https://pub.dev/packages/intl
@@ -22,6 +21,9 @@ dependencies:
   bottom_bar_line: ^0.1.1 #https://pub.dev/packages/bottom_bar_line
   flutter_simple_rating_bar: 0.0.3 #https://pub.dev/packages/flutter_simple_rating_bar/install
   flutter_rating_bar: ^3.2.0+1 #https://pub.dev/packages/flutter_rating_bar
+  mysql1: ^0.17.1 #https://pub.dev/packages/mysql1
+  provider: ^4.3.2+4
+  password: ^1.0.0 #https://pub.dev/packages/password
 
   firebase_auth: ^0.18.4+1
   firebase_core: ^0.5.3
