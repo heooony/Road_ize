@@ -15,12 +15,13 @@ class RatingHashtag extends StatelessWidget {
         children: [
           Expanded(
               child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 'ROAD STAR',
                 style: TextStyle(fontSize: SizeConfig.fontSize * 0.8),
               ),
+              Spacer(),
               RatingBarIndicator(
                 rating: 2.75,
                 itemBuilder: (context, index) => Icon(
@@ -31,10 +32,12 @@ class RatingHashtag extends StatelessWidget {
                 itemSize: getProportionateScreenWidth(20.0),
                 direction: Axis.horizontal,
               ),
+              Spacer(),
               Text(
                 'rating : 2.75',
                 style: TextStyle(fontWeight: FontWeight.bold),
-              )
+              ),
+              Spacer(),
             ],
           )),
           Container(
@@ -44,12 +47,13 @@ class RatingHashtag extends StatelessWidget {
           ),
           Expanded(
               child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 'HASH TAG',
                 style: TextStyle(fontSize: SizeConfig.fontSize * 0.8),
               ),
+              Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -64,7 +68,10 @@ class RatingHashtag extends StatelessWidget {
                     icon: Icons.anchor_outlined,
                   ),
                 ],
-              )
+              ),
+              Spacer(
+                flex: 3,
+              ),
             ],
           )),
         ],

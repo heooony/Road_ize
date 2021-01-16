@@ -10,6 +10,7 @@ class RoadProfile extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     SizeConfig.init(context);
     return SliverAppBar(
+      automaticallyImplyLeading: false,
       collapsedHeight: SizeConfig.screenHeight * 0.2,
       elevation: 0,
       floating: true,
@@ -27,6 +28,21 @@ class RoadProfile extends StatelessWidget {
                 image: DecorationImage(
                     image: AssetImage('images/login_background.jpg'),
                     fit: BoxFit.cover)),
+          ),
+          Positioned(
+            bottom: SizeConfig.screenHeight * 0.1,
+            left: kDefaultPadding,
+            child: Container(
+              width: SizeConfig.screenWidth * 0.7,
+              child: Text(
+                '24년 인생을 건 완벽한, 어느새 김경희는 늙었다.',
+                style: TextStyle(
+                    height: 1.4,
+                    color: Colors.white,
+                    fontSize: SizeConfig.fontSize * 1.4,
+                    fontFamily: 'nexon_medium'),
+              ),
+            ),
           ),
           Positioned(
               right: 0, bottom: kDefaultPadding * 2, child: ProfileCard()),
@@ -61,19 +77,6 @@ class _ProfileCardState extends State<ProfileCard> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Container(
-          width: SizeConfig.screenWidth * 0.4,
-          height: getProportionateScreenHeight(37.0),
-          color: kSecondColor,
-          child: Center(
-            child: Text(
-              'Restaurant',
-              textAlign: TextAlign.center,
-              style:
-                  TextStyle(color: Colors.white, fontSize: SizeConfig.fontSize),
-            ),
-          ),
-        ),
         Container(
           width: SizeConfig.screenWidth * 0.2,
           height: getProportionateScreenHeight(37.0),
