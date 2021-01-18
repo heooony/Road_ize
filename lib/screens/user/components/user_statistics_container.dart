@@ -37,13 +37,16 @@ class UserStatistics extends StatelessWidget {
         Text(title,
             style: TextStyle(
                 color: Colors.black,
-                fontSize: SizeConfig.fontSize * 0.7,
+                fontSize: SizeConfig.fontSize * 0.6,
                 fontFamily: 'nexon_light')),
         Text(statistics,
             style: TextStyle(
                 color: Colors.black,
-                fontSize: SizeConfig.fontSize * 1.1,
+                fontSize: SizeConfig.fontSize * 0.8,
                 fontFamily: 'nexon_light')),
+        SizedBox(
+          height: SizeConfig.screenHeight * 0.04,
+        )
       ],
     );
   }

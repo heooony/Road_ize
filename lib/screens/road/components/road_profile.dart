@@ -18,11 +18,11 @@ class RoadProfile extends StatelessWidget {
       snap: false,
       toolbarHeight: kToolbarHeight,
       expandedHeight: size.height * 0.4,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white.withOpacity(0.0),
       flexibleSpace: Stack(
         children: [
           Container(
-            margin: EdgeInsets.only(bottom: kDefaultPadding * 2.5),
+            margin: EdgeInsets.only(bottom: kDefaultPadding),
             height: SizeConfig.screenHeight * 0.4,
             decoration: BoxDecoration(
                 image: DecorationImage(
@@ -44,8 +44,7 @@ class RoadProfile extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-              right: 0, bottom: kDefaultPadding * 2, child: ProfileCard()),
+          Positioned(right: 0, bottom: 0, child: ProfileCard()),
           Positioned(
               top: kDefaultPadding,
               right: kDefaultPadding,
@@ -53,11 +52,6 @@ class RoadProfile extends StatelessWidget {
                 Icons.add,
                 color: Colors.white,
               )),
-          Positioned(
-            left: 0,
-            bottom: -kDefaultPadding * 0.5,
-            child: RoadReaction(),
-          )
         ],
       ),
     );
@@ -77,6 +71,12 @@ class _ProfileCardState extends State<ProfileCard> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
+        Container(
+          width: SizeConfig.screenWidth * 0.7,
+          height: getProportionateScreenHeight(37.0),
+          color: kSecondColor,
+          child: Center(child: RoadReaction()),
+        ),
         Container(
           width: SizeConfig.screenWidth * 0.2,
           height: getProportionateScreenHeight(37.0),

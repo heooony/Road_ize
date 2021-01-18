@@ -44,9 +44,18 @@ class UserInterface extends StatelessWidget {
                   ),
                   InkWell(
                       onTap: () {},
-                      child: Text(
-                        '구독',
-                        style: TextStyle(color: kSecondColor),
+                      child: Container(
+                        width: getProportionateScreenWidth(70.0),
+                        height: getProportionateScreenHeight(23.0),
+                        decoration: BoxDecoration(
+                            color: kPrimaryColor,
+                            borderRadius: BorderRadius.circular(20.0)),
+                        child: Center(
+                          child: Text(
+                            '구독',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
                       ))
                 ],
               ),

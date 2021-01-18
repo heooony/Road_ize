@@ -10,20 +10,31 @@ class RoadReaction extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return Container(
-      margin: EdgeInsets.all(kDefaultPadding),
       child: Container(
+        margin: EdgeInsets.only(left: kDefaultPadding),
         child: Row(
           children: [
-            Icon(Icons.arrow_right),
-            Text('102 '),
+            Icon(
+              Icons.arrow_right,
+              color: Colors.white,
+            ),
+            Text(
+              '102   ',
+              style: TextStyle(color: Colors.white),
+            ),
             Container(
               width: getProportionateScreenWidth(15.0),
               height: getProportionateScreenHeight(15.0),
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('images/icons/empty_heart.png'))),
+                      image: AssetImage('images/icons/empty_heart.png'),
+                      colorFilter:
+                          ColorFilter.mode(Colors.white, BlendMode.srcIn))),
             ),
-            Text(' 102')
+            Text(
+              ' 102',
+              style: TextStyle(color: Colors.white),
+            )
           ],
         ),
       ),
