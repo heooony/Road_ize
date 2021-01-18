@@ -1,14 +1,20 @@
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:roadize/screens/add_road/custom_gallery.dart';
 
 class GridGallery extends StatefulWidget {
+  Function callback;
+  GridGallery(this.callback);
+
   @override
-  _GridGalleryState createState() => _GridGalleryState();
+  GridGalleryState createState() => GridGalleryState();
 }
 
-class _GridGalleryState extends State<GridGallery> {
+class GridGalleryState extends State<GridGallery> {
   List<AssetEntity> assets = [];
 
   @override
@@ -18,15 +24,12 @@ class _GridGalleryState extends State<GridGallery> {
   }
 
   _fetchAssets() async {
-    // Set onlyAll to true, to fetch only the 'Recent' album
-    // which contains all the photos/videos in the storage
     final albums = await PhotoManager.getAssetPathList(onlyAll: true);
     final recentAlbum = albums.first;
 
-    // Now that we got the album, fetch all the assets it contains
     final recentAssets = await recentAlbum.getAssetListRange(
-      start: 0, // start at index 0
-      end: 1000000, // end at a very big index (to get all the assets)
+      start: 0,
+      end: 1000000,
     );
 
     // Update the state and notify UI
@@ -43,18 +46,20 @@ class _GridGalleryState extends State<GridGallery> {
             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
         itemBuilder: (context, index) {
           return FutureBuilder(
-              future: assets[index].thumbData,
-              builder: (context, snapshot) {
-                final bytes = snapshot.data;
-                if (bytes == null) return CircularProgressIndicator();
-                return GestureDetector(
-                  onTap: () {
-                    CustomGalleryState.imageFile = assets[index].file;
-                  },
-                  child:
-                      Container(child: Image.memory(bytes, fit: BoxFit.cover)),
-                );
-              });
+            future: assets[index].thumbData,
+            builder: (context, snapshot) {
+              final bytes = snapshot.data;
+              if (bytes == null) return CircularProgressIndicator();
+              return GestureDetector(
+                onTap: () {
+                  this.widget.callback(assets[index].file);
+                },
+                child: Container(
+                  child: Image.memory(bytes, fit: BoxFit.cover),
+                ),
+              );
+            },
+          );
         },
       ),
     );

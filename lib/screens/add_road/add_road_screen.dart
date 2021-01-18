@@ -12,6 +12,8 @@ class AddRoadScreen extends StatefulWidget {
 }
 
 class _AddRoadScreenState extends State<AddRoadScreen> {
+  void callback(value) {}
+
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
