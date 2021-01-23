@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadize/firebase.dart';
-import 'package:roadize/screens/home/home_screen.dart';
+import 'package:roadize/screens/basic/basic_screen.dart';
 import 'package:roadize/screens/login/components/rounded_button.dart';
 import 'package:roadize/screens/login/components/text_component.dart';
 import 'package:roadize/screens/login/sign_up_screen.dart';
@@ -52,7 +52,7 @@ class _SignInContainerBodyState extends State<SignInContainerBody> {
               await MyFirebase.authSignInUser().then((value) {
                 if (value == true) {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => BasicScreen()));
                 } else {
                   setState(() {
                     TextComponent.validate = false;

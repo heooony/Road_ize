@@ -1,9 +1,7 @@
-import 'package:bottom_bar_line/bottom_bar_line_item.dart';
-import 'package:bottom_bar_line/bottom_bar_line_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:roadize/constants.dart';
-import 'package:roadize/screens/user/user_screen.dart';
+import 'package:roadize/size_config.dart';
+
+import '../../constants.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,102 +9,199 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  PageController pageController;
-  int currentPage;
-
-  List<BottomBarLineItem> bottomListItem = [
-    BottomBarLineItem(
-      icon: Icon(
-        Icons.home,
-        color: kPrimaryColor,
-      ),
-      selectedColor: kSecondColor,
-    ),
-    BottomBarLineItem(
-      icon: Icon(
-        Icons.search,
-        color: kPrimaryColor,
-      ),
-      selectedColor: kSecondColor,
-    ),
-    BottomBarLineItem(
-      icon: Icon(
-        Icons.rss_feed,
-        color: kPrimaryColor,
-      ),
-      selectedColor: kSecondColor,
-    ),
-    BottomBarLineItem(
-      icon: Icon(
-        Icons.person_rounded,
-        color: kPrimaryColor,
-      ),
-      selectedColor: kSecondColor,
-    ),
-  ];
-
-  List<Widget> screen = [
-    Container(
-      constraints: BoxConstraints.expand(),
-      color: Colors.red,
-      child: Center(
-        child: Text('PAGE 1'),
-      ),
-    ),
-    Container(
-      constraints: BoxConstraints.expand(),
-      color: Colors.blue,
-      child: Center(
-        child: Text('PAGE 2'),
-      ),
-    ),
-    Container(
-      constraints: BoxConstraints.expand(),
-      color: Colors.orange,
-      child: Center(
-        child: Text('PAGE 3'),
-      ),
-    ),
-    UserScreen()
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    pageController = PageController();
-    currentPage = 0;
-  }
-
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    SizeConfig.init(context);
     return Scaffold(
-      body: PageView(
-        controller: pageController,
-        physics: NeverScrollableScrollPhysics(),
-        children: screen,
-        onPageChanged: (int index) {
-          if (pageController.position.userScrollDirection !=
-              ScrollDirection.idle)
-            setState(() {
-              currentPage = index;
-            });
-        },
-      ),
-      bottomNavigationBar: BottomBarLine(
-        currentIndex: currentPage,
-        onTap: (int index) {
-          if (index != currentPage) {
-            pageController.animateToPage(
-              index,
-              duration: Duration(milliseconds: 500),
-              curve: Curves.fastLinearToSlowEaseIn,
-            );
-            setState(() {
-              currentPage = index;
-            });
-          }
-        },
-        items: bottomListItem,
+      body: Container(
+        padding: EdgeInsets.all(
+          getProportionateScreenWidth(20.0),
+        ),
+        child: ListWheelScrollView(
+          itemExtent: SizeConfig.screenHeight * 0.65,
+          physics: FixedExtentScrollPhysics(),
+          magnification: 1.0,
+          perspective: 0.002,
+          overAndUnderCenterOpacity: 0.5,
+          diameterRatio: 4.0,
+          children: [
+            Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    image: DecorationImage(
+                      image: AssetImage('images/1.jpg'),
+                      fit: BoxFit.cover,
+                      colorFilter: ColorFilter.mode(
+                          Colors.black.withOpacity(0.5), BlendMode.dstIn),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  left: 0,
+                  bottom: 0,
+                  child: Container(
+                    margin: EdgeInsets.only(
+                        right: kDefaultPadding,
+                        left: kDefaultPadding,
+                        bottom: kDefaultPadding * 2),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '하늘이 맑을 때 가기 좋은 곳',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.fontSize * 1.3),
+                        ),
+                        Text(
+                          'Designed by PotDongheon',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: SizeConfig.fontSize),
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on_rounded,
+                              color: kSecondColor,
+                            ),
+                            Text(
+                              '15 Road',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: SizeConfig.fontSize * 0.8),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    image: DecorationImage(
+                      image: AssetImage('images/1.jpg'),
+                      fit: BoxFit.cover,
+                      colorFilter: ColorFilter.mode(
+                          Colors.black.withOpacity(0.5), BlendMode.dstIn),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  left: 0,
+                  bottom: 0,
+                  child: Container(
+                    margin: EdgeInsets.only(
+                        right: kDefaultPadding,
+                        left: kDefaultPadding,
+                        bottom: kDefaultPadding * 2),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '하늘이 맑을 때 가기 좋은 곳',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.fontSize * 1.3),
+                        ),
+                        Text(
+                          'Designed by PotDongheon',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: SizeConfig.fontSize),
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on_rounded,
+                              color: kSecondColor,
+                            ),
+                            Text(
+                              '15 Road',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: SizeConfig.fontSize * 0.8),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    image: DecorationImage(
+                      image: AssetImage('images/1.jpg'),
+                      fit: BoxFit.cover,
+                      colorFilter: ColorFilter.mode(
+                          Colors.black.withOpacity(0.5), BlendMode.dstIn),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  left: 0,
+                  bottom: 0,
+                  child: Container(
+                    margin: EdgeInsets.only(
+                        right: kDefaultPadding,
+                        left: kDefaultPadding,
+                        bottom: kDefaultPadding * 2),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.fontSize * 1.3),
+                        ),
+                        Text(
+                          'Designed by PotDongheon',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: SizeConfig.fontSize),
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on_rounded,
+                              color: kSecondColor,
+                            ),
+                            Text(
+                              '15 Road',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: SizeConfig.fontSize * 0.8),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
