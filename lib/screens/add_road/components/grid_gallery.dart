@@ -6,6 +6,8 @@ import 'package:photo_manager/photo_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:roadize/screens/add_road/custom_gallery.dart';
 
+import '../custom_gallery.dart';
+
 class GridGallery extends StatefulWidget {
   Function callback;
   GridGallery(this.callback);
