@@ -68,17 +68,16 @@ class _SearchScreenState extends State<SearchScreen> {
               style: TextStyle(
                   color: kPrimaryColor, fontSize: SizeConfig.fontSize),
             ),
-            // SingleChildScrollView(
-            //   child: Container(
-            //     width: SizeConfig.screenWidth,
-            //     height: SizeConfig.screenWidth,
-            //     child: ListView.builder(
-            //         itemCount: 3,
-            //         itemBuilder: (context, index) {
-            //           return displayCards[index];
-            //         }),
-            //   ),
-            // ),
+            Container(
+              height: SizeConfig.screenWidth * 0.5,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return displayCards[index];
+                },
+              ),
+            ),
             Container(
               color: Colors.grey.withOpacity(0.5),
               width: SizeConfig.screenWidth,
@@ -88,6 +87,66 @@ class _SearchScreenState extends State<SearchScreen> {
               'Road User',
               style: TextStyle(
                   color: kPrimaryColor, fontSize: SizeConfig.fontSize),
+            ),
+            Container(
+              height: SizeConfig.screenWidth * 0.35,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(20.0)),
+                itemBuilder: (context, index) {
+                  return Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: SizeConfig.screenWidth * 0.1,
+                        backgroundColor: Colors.white,
+                        backgroundImage: AssetImage('images/my_face.jpg'),
+                      ),
+                      SizedBox(
+                        width: getProportionateScreenWidth(10.0),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '김동헌',
+                            style: TextStyle(
+                                fontSize: SizeConfig.fontSize,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '13 Road',
+                            style:
+                                TextStyle(fontSize: SizeConfig.fontSize * 0.8),
+                          ),
+                          RawMaterialButton(
+                            onPressed: () {},
+                            fillColor: kPrimaryColor,
+                            child: Text(
+                              '구독',
+                              style: TextStyle(
+                                  fontSize: SizeConfig.fontSize * 0.6,
+                                  color: Colors.white),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            constraints: BoxConstraints(
+                                minWidth: getProportionateScreenWidth(60.0),
+                                minHeight: getProportionateScreenHeight(20.0)),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: getProportionateScreenWidth(20.0),
+                      )
+                    ],
+                  );
+                },
+              ),
             ),
             Container(
               color: Colors.grey.withOpacity(0.5),

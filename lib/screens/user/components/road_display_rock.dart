@@ -61,6 +61,8 @@ class DisplayCard extends StatelessWidget {
             context, MaterialPageRoute(builder: (context) => RoadScreen()));
       },
       child: Container(
+        width: SizeConfig.screenWidth * 0.4,
+        height: SizeConfig.screenWidth * 0.4,
         color: Colors.white,
         child: Column(
           children: [
