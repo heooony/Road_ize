@@ -5,11 +5,14 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class MyFirebase {
   static final auth = FirebaseAuth.instance;
   static final store = FirebaseFirestore.instance;
+  static final storage = FirebaseStorage.instance;
   static GoogleSignIn googleSignIn = GoogleSignIn();
   static User currentUser;
   static String email = '';
@@ -43,6 +46,30 @@ class MyFirebase {
     } catch (e) {
       return false;
     }
+  }
+
+  static Future<String> uploadImageToStorage(file, title) async {
+    if (file == null) return null;
+
+    Reference storageReference =
+        storage.ref().child("${currentUser.uid}/$title");
+
+    await storageReference.putFile(file);
+
+    String downloadURL = await storageReference.getDownloadURL();
+    return downloadURL;
+  }
+
+  static Future<bool> getStorage(child, title) async {
+    storage.ref().child("${currentUser.uid}/$title");
+  }
+
+  static Future<void> setStoreData(String collection, String title, String data,
+      String title2, String data2) {
+    store
+        .collection(collection)
+        .doc(data + MyFirebase.currentUser.uid)
+        .set({'$title': data, '$title2': data2});
   }
 
   // static Future<String> gSignIn() async {
