@@ -28,7 +28,7 @@ class MainScreen extends StatelessWidget {
               headline1:
                   TextStyle(fontSize: 45.0, fontWeight: FontWeight.normal),
               headline2: TextStyle(color: kTextColor, fontSize: 20.0))),
-      home: SafeArea(child: BasicScreen()),
+      home: SafeArea(child: FirstScreen()),
     );
   }
 }
