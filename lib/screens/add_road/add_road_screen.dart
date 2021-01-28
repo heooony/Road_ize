@@ -1,8 +1,11 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:roadize/screens/add_road/components/photo_text.dart';
 import 'package:roadize/screens/add_road/components/rounded_button.dart';
 import 'package:roadize/screens/add_road/components/rounded_icon.dart';
+import 'package:roadize/screens/add_road/custom_gallery.dart';
 import 'package:roadize/size_config.dart';
+import '../../firebase.dart';
 import 'components/preview.dart';
 import 'components/road_title.dart';
 
@@ -12,7 +15,17 @@ class AddRoadScreen extends StatefulWidget {
 }
 
 class _AddRoadScreenState extends State<AddRoadScreen> {
-  void callback(value) {}
+  String title;
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void callback(value) {
+    setState(() {
+      title = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +46,9 @@ class _AddRoadScreenState extends State<AddRoadScreen> {
                 Spacer(
                   flex: 2,
                 ),
-                RoadTitle(),
+                RoadTitle(
+                  callback: callback,
+                ),
                 Spacer(),
                 PhotoText(),
                 Spacer(
@@ -45,9 +60,23 @@ class _AddRoadScreenState extends State<AddRoadScreen> {
                 ),
                 RoundedButton(
                   text: '등록',
+                  onTap: () async {
+                    await MyFirebase.uploadImageToStorage(
+                            CustomGalleryState.selectFile, title)
+                        .then((value) async {
+                      print(
+                          '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+                      await MyFirebase.setStoreData(
+                          'map', 'title', title, 'downloadURL', value);
+                      Navigator.pop(context);
+                    });
+                  },
                 ),
                 Spacer(),
                 RoundedButton(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
                   text: '취소',
                 ),
                 Spacer(
