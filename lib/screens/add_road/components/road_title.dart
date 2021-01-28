@@ -6,6 +6,8 @@ import 'package:roadize/size_config.dart';
 import '../../../constants.dart';
 
 class RoadTitle extends StatelessWidget {
+  RoadTitle({this.callback});
+  final Function callback;
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
@@ -28,7 +30,9 @@ class RoadTitle extends StatelessWidget {
               border: OutlineInputBorder(borderSide: BorderSide.none),
               contentPadding: EdgeInsets.all(0.0),
             ),
-            onChanged: (value) {},
+            onChanged: (value) {
+              callback(value);
+            },
           ),
         )
       ],

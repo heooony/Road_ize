@@ -1,10 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:roadize/screens/add_road/components/road_title.dart';
-import 'package:roadize/size_config.dart';
+import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:roadize/screens/add_road/components/grid_gallery.dart';
+import 'package:roadize/screens/add_road/custom_gallery.dart';
+import 'package:roadize/size_config.dart';
 import '../../../constants.dart';
 
-class Preview extends StatelessWidget {
+class Preview extends StatefulWidget {
+  @override
+  _PreviewState createState() => _PreviewState();
+}
+
+class _PreviewState extends State<Preview> {
+  File file;
+
+  @override
+  void initState() {
+    super.initState();
+    file = File('');
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
@@ -41,8 +56,12 @@ class Preview extends StatelessWidget {
                   flex: 4,
                   child: Container(
                     decoration: BoxDecoration(
-                        image:
-                            DecorationImage(image: AssetImage('images/1.jpg'))),
+                      image: DecorationImage(
+                        image: file == null
+                            ? AssetImage('images/1.jpg')
+                            : FileImage(file),
+                      ),
+                    ),
                   ),
                 ),
                 Expanded(

@@ -1,11 +1,10 @@
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:roadize/firebase.dart';
 import 'package:roadize/screens/add_road/components/grid_gallery.dart';
 import 'package:roadize/size_config.dart';
-import 'package:vector_math/vector_math_64.dart';
-import 'components/divided_bar.dart';
+import '../../constants.dart';
 
 class CustomGallery extends StatefulWidget {
   @override
@@ -13,6 +12,7 @@ class CustomGallery extends StatefulWidget {
 }
 
 class CustomGalleryState extends State<CustomGallery> {
+  static File selectFile;
   static Future<File> imageFile;
   GridGallery gridGallery;
 
@@ -38,16 +38,43 @@ class CustomGalleryState extends State<CustomGallery> {
         future: imageFile,
         builder: (context, snapshot) {
           final file = snapshot.data;
+          selectFile = file;
           if (file == null) return Container();
           return Column(
             children: [
               Expanded(
-                  flex: 4,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        image: DecorationImage(image: FileImage(file))),
-                  )),
-              DividedBar(),
+                flex: 4,
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: FileImage(file), fit: BoxFit.cover),
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                  child: Row(
+                    children: [
+                      Text(
+                        '앨범',
+                        style: TextStyle(fontSize: SizeConfig.fontSize * 1.2),
+                      ),
+                      Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          '버튼',
+                          style: TextStyle(fontSize: SizeConfig.fontSize * 1.2),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
               gridGallery,
             ],
           );
