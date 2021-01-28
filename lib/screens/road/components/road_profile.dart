@@ -5,6 +5,10 @@ import 'package:roadize/size_config.dart';
 import '../../../constants.dart';
 
 class RoadProfile extends StatelessWidget {
+  RoadProfile({this.file, this.title});
+  final file;
+  final title;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -25,9 +29,12 @@ class RoadProfile extends StatelessWidget {
             margin: EdgeInsets.only(bottom: kDefaultPadding),
             height: SizeConfig.screenHeight * 0.4,
             decoration: BoxDecoration(
+                color: Colors.black,
                 image: DecorationImage(
-                    image: AssetImage('images/login_background.jpg'),
-                    fit: BoxFit.cover)),
+                    image: NetworkImage(file),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                        Colors.black.withOpacity(0.8), BlendMode.dstIn))),
           ),
           Positioned(
             bottom: SizeConfig.screenHeight * 0.1,
@@ -35,7 +42,7 @@ class RoadProfile extends StatelessWidget {
             child: Container(
               width: SizeConfig.screenWidth * 0.7,
               child: Text(
-                '24년 인생을 건 완벽한, 어느새 김경희는 늙었다.',
+                title,
                 style: TextStyle(
                     height: 1.4,
                     color: Colors.white,
@@ -45,13 +52,6 @@ class RoadProfile extends StatelessWidget {
             ),
           ),
           Positioned(right: 0, bottom: 0, child: ProfileCard()),
-          Positioned(
-              top: kDefaultPadding,
-              right: kDefaultPadding,
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-              )),
         ],
       ),
     );
