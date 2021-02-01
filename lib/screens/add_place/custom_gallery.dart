@@ -14,6 +14,7 @@ class CustomGallery extends StatefulWidget {
 class CustomGalleryState extends State<CustomGallery> {
   static File selectFile;
   static Future<File> imageFile;
+  List<Future<File>> photos = [];
   GridGallery gridGallery;
 
   @override
@@ -22,10 +23,9 @@ class CustomGalleryState extends State<CustomGallery> {
     gridGallery = GridGallery(this.callback);
   }
 
-  void callback(Future<File> image) {
-    setState(() {
-      imageFile = image;
-    });
+  void callback(photos, number) {
+    this.photos.add(photos);
+    photos.removeAt(number);
   }
 
   @override
@@ -55,6 +55,7 @@ class CustomGalleryState extends State<CustomGallery> {
                       Spacer(),
                       GestureDetector(
                         onTap: () {
+                          print(photos);
                           Navigator.pop(context);
                         },
                         child: Text(

@@ -10,8 +10,8 @@ import 'package:roadize/size_config.dart';
 import '../custom_gallery.dart';
 
 class GridGallery extends StatefulWidget {
-  final Function callback;
   GridGallery(this.callback);
+  final Function callback;
 
   @override
   GridGalleryState createState() => GridGalleryState();
@@ -57,45 +57,51 @@ class GridGalleryState extends State<GridGallery> {
               final bytes = snapshot.data;
               if (bytes == null) return CircularProgressIndicator();
               return GestureDetector(
-                onTap: () {
-                  // this.widget.callback(assets[index].file);
-                  setState(() {
-                    if (photoIndex.contains(index) == true) {
-                      number = photoIndex.indexOf(index);
+                onTap: () async {
+                  number = photoIndex.indexOf(index);
+                  if (photoIndex.contains(index) == true) {
+                    await this.widget.callback(assets[index].file, number);
+                    setState(() {
                       photoIndex.remove(index);
                       photos.removeAt(number);
-                    } else {
+                    });
+                  } else {
+                    await this.widget.callback(assets[index].file);
+                    setState(() {
                       photoIndex.add(index);
                       photos.add(assets[index].file);
-                    }
-                    print(photoIndex);
-                    print(photos);
-                  });
+                    });
+                  }
+                  print(photoIndex);
+                  print(photos);
                 },
-                child: Container(
-                  child: Stack(
-                    children: [
-                      Image.memory(
-                        bytes,
+                child: Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                        image: MemoryImage(
+                          bytes,
+                        ),
                         fit: BoxFit.cover,
-                        color: photoIndex.contains(index) == true
-                            ? Colors.white.withOpacity(0.2)
+                        colorFilter: photoIndex.contains(index) == true
+                            ? ColorFilter.mode(
+                                Colors.black.withOpacity(0.3), BlendMode.dstIn)
                             : null,
-                        colorBlendMode: BlendMode.dstIn,
-                      ),
-                      if (photoIndex.contains(index) == true)
-                        Center(
-                            child: Text(
-                          photoIndex.indexOf(index).toString(),
-                          style: TextStyle(
-                              fontSize: SizeConfig.fontSize,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
-                        ))
-                      else
-                        Container()
-                    ],
-                  ),
+                      )),
+                    ),
+                    if (photoIndex.contains(index) == true)
+                      Center(
+                          child: Text(
+                        photoIndex.indexOf(index).toString(),
+                        style: TextStyle(
+                            fontSize: SizeConfig.fontSize,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ))
+                    else
+                      Container()
+                  ],
                 ),
               );
             },
