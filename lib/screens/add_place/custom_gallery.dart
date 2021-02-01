@@ -23,9 +23,10 @@ class CustomGalleryState extends State<CustomGallery> {
     gridGallery = GridGallery(this.callback);
   }
 
-  void callback(photos, number) {
-    this.photos.add(photos);
-    photos.removeAt(number);
+  void callback(photos) {
+    setState(() {
+      this.photos = photos;
+    });
   }
 
   @override

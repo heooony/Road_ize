@@ -58,19 +58,19 @@ class GridGalleryState extends State<GridGallery> {
               if (bytes == null) return CircularProgressIndicator();
               return GestureDetector(
                 onTap: () async {
-                  number = photoIndex.indexOf(index);
                   if (photoIndex.contains(index) == true) {
-                    await this.widget.callback(assets[index].file, number);
                     setState(() {
+                      number = photoIndex.indexOf(index);
                       photoIndex.remove(index);
                       photos.removeAt(number);
                     });
+                    this.widget.callback(photos);
                   } else {
-                    await this.widget.callback(assets[index].file);
                     setState(() {
                       photoIndex.add(index);
                       photos.add(assets[index].file);
                     });
+                    this.widget.callback(photos);
                   }
                   print(photoIndex);
                   print(photos);
