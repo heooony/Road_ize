@@ -64,8 +64,6 @@ class _AddRoadScreenState extends State<AddRoadScreen> {
                     await MyFirebase.uploadImageToStorage(
                             CustomGalleryState.selectFile, title)
                         .then((value) async {
-                      print(
-                          '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
                       await MyFirebase.setStoreData(
                           'map', 'title', title, 'downloadURL', value);
                       Navigator.pop(context);
