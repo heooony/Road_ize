@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:roadize/screens/add_place/add_place_screen.dart';
 import 'package:roadize/screens/add_place/components/grid_gallery.dart';
 import 'package:roadize/size_config.dart';
 
@@ -65,7 +66,12 @@ class CustomGalleryState extends State<CustomGallery> {
             padding: EdgeInsets.only(right: kDefaultPadding),
             child: Center(
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AddPlaceScreen()));
+                },
                 child: Text(
                   "다음",
                   style: TextStyle(
@@ -76,7 +82,7 @@ class CustomGalleryState extends State<CustomGallery> {
           ),
         ],
         backgroundColor: Colors.white,
-        toolbarHeight: getProportionateScreenHeight(60.0),
+        toolbarHeight: SizeConfig.screenHeight * 0.07,
         elevation: 1,
       ),
       body: Column(

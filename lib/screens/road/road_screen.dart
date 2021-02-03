@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roadize/constants.dart';
 import 'package:roadize/screens/add_place/add_place_screen.dart';
+import 'package:roadize/screens/add_place/custom_gallery.dart';
 import 'package:roadize/size_config.dart';
 import 'components/road_post.dart';
 import 'components/road_profile.dart';
@@ -29,7 +30,7 @@ class _RoadScreenState extends State<RoadScreen> {
           ),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AddPlaceScreen()));
+                MaterialPageRoute(builder: (context) => CustomGallery()));
           },
         ),
         body: CustomScrollView(
