@@ -3,11 +3,7 @@ import 'package:roadize/constants.dart';
 import 'package:roadize/screens/add_place/add_place_screen.dart';
 import 'package:roadize/size_config.dart';
 
-class HashTagCard extends StatelessWidget {
-  HashTagCard({this.name, this.callback});
-  final name;
-  final Function callback;
-
+class EmptyHashTagCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
@@ -31,29 +27,17 @@ class HashTagCard extends StatelessWidget {
               blurRadius: 10.0)
         ],
       ),
-      child: Row(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            name,
+            '내용',
             style: TextStyle(
-                fontSize: SizeConfig.fontSize * 0.7,
-                color: Colors.black.withOpacity(0.8),
-                fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            width: getProportionateScreenWidth(6.0),
-          ),
-          GestureDetector(
-            onTap: () {
-              AddPlaceScreenState.hashtag.remove(this);
-              this.callback();
-            },
-            child: Icon(
-              Icons.remove_circle,
-              size: getProportionateScreenWidth(17.0),
-              color: kPrimaryColor.withOpacity(0.7),
+              fontSize: SizeConfig.fontSize * 0.7,
+              color: Colors.black.withOpacity(0.4),
+              fontWeight: FontWeight.bold,
             ),
-          )
+          ),
         ],
       ),
     );
