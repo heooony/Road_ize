@@ -5,7 +5,12 @@ import 'package:roadize/screens/add_place/components/empty_hashtag_card.dart';
 import 'package:roadize/screens/add_place/components/hashtag_card.dart';
 import 'package:roadize/size_config.dart';
 
+import '../../firebase.dart';
+
 class AddPlaceScreen extends StatefulWidget {
+  AddPlaceScreen({this.photos});
+  final photos;
+
   @override
   AddPlaceScreenState createState() => AddPlaceScreenState();
 }
@@ -13,6 +18,11 @@ class AddPlaceScreen extends StatefulWidget {
 class AddPlaceScreenState extends State<AddPlaceScreen> {
   double rating;
   static List<HashTagCard> hashtag = [];
+  static List<String> hashtagName = [];
+  TextEditingController title = TextEditingController();
+  TextEditingController story = TextEditingController();
+  TextEditingController address = TextEditingController();
+  TextEditingController ps = TextEditingController();
 
   @override
   void initState() {
@@ -22,6 +32,12 @@ class AddPlaceScreenState extends State<AddPlaceScreen> {
 
   void callback() {
     setState(() {});
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    hashtag.clear();
   }
 
   @override
@@ -48,10 +64,12 @@ class AddPlaceScreenState extends State<AddPlaceScreen> {
                 child: Center(
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AddPlaceScreen()));
+                      print(widget.photos);
+                      print(title.text);
+                      print(story.text);
+                      print(address.text);
+                      print(hashtag);
+                      print(rating);
                     },
                     child: Text(
                       "등록",
@@ -81,18 +99,21 @@ class AddPlaceScreenState extends State<AddPlaceScreen> {
                       hintText: "제목을 입력하세요",
                       maxLines: 1,
                       flex: 2,
+                      controller: title,
                     ),
                     TextContainer(
                       title: "STORY",
                       hintText: "내용을 입력하세요",
                       maxLines: 10,
                       flex: 7,
+                      controller: story,
                     ),
                     TextContainer(
                       title: "ADDRESS",
                       hintText: "장소의 위치 및 주소를 입력하세요",
                       maxLines: 1,
                       flex: 2,
+                      controller: address,
                     ),
                     TextContainer(
                       title: "PS",
@@ -100,6 +121,7 @@ class AddPlaceScreenState extends State<AddPlaceScreen> {
                       maxLines: 1,
                       flex: 2,
                       type: 'hash',
+                      controller: ps,
                       callback: callback,
                     ),
                     Container(
@@ -163,20 +185,22 @@ class AddPlaceScreenState extends State<AddPlaceScreen> {
 }
 
 class TextContainer extends StatelessWidget {
-  TextContainer(
-      {this.title,
-      this.hintText,
-      this.maxLines,
-      this.flex,
-      this.type,
-      this.callback});
+  TextContainer({
+    this.title,
+    this.hintText,
+    this.maxLines,
+    this.flex,
+    this.type,
+    this.callback,
+    this.controller,
+  });
   final title;
   final hintText;
   final maxLines;
   final flex;
   final type;
   final Function callback;
-  TextEditingController textEditingController = TextEditingController();
+  final controller;
 
   @override
   Widget build(BuildContext context) {
@@ -192,7 +216,7 @@ class TextContainer extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
           TextField(
-            controller: textEditingController,
+            controller: controller,
             style: TextStyle(fontSize: SizeConfig.screenHeight * 0.018),
             maxLines: maxLines,
             decoration: InputDecoration(
@@ -202,7 +226,7 @@ class TextContainer extends StatelessWidget {
             ),
             onSubmitted: (value) {
               if (type == 'hash') {
-                textEditingController.clear();
+                controller.clear();
                 AddPlaceScreenState.hashtag
                     .add(HashTagCard(name: value, callback: callback));
               }

@@ -70,7 +70,8 @@ class CustomGalleryState extends State<CustomGallery> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => AddPlaceScreen()));
+                          builder: (context) =>
+                              AddPlaceScreen(photos: photos)));
                 },
                 child: Text(
                   "다음",
