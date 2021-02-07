@@ -87,19 +87,22 @@ class DisplayCard extends StatelessWidget {
                       Spacer(
                         flex: 2,
                       ),
-                      Text(title),
+                      Text(
+                        title,
+                        style: TextStyle(fontSize: SizeConfig.fontSize * 0.6),
+                      ),
                       Spacer(),
                       Row(
                         children: [
                           Icon(
                             Icons.location_on_sharp,
                             color: kPrimaryColor,
-                            size: SizeConfig.fontSize * 0.8,
+                            size: SizeConfig.fontSize * 0.7,
                           ),
                           Text(
                             '$roadCount road',
                             style:
-                                TextStyle(fontSize: SizeConfig.fontSize * 0.7),
+                                TextStyle(fontSize: SizeConfig.fontSize * 0.6),
                           )
                         ],
                       ),

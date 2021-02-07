@@ -220,8 +220,9 @@ class TextContainer extends StatelessWidget {
             style: TextStyle(fontSize: SizeConfig.screenHeight * 0.018),
             maxLines: maxLines,
             decoration: InputDecoration(
+              isDense: true,
               hintText: hintText == null ? null : hintText,
-              contentPadding: EdgeInsets.symmetric(vertical: kDefaultPadding),
+              contentPadding: EdgeInsets.only(top: kDefaultPadding * 0.5),
               border: OutlineInputBorder(borderSide: BorderSide.none),
             ),
             onSubmitted: (value) {

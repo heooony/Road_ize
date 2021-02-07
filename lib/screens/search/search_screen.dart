@@ -74,7 +74,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 height: SizeConfig.screenWidth * 0.5,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 3,
+                  itemCount: 5,
                   itemBuilder: (context, index) {
                     return displayCards[index];
                   },
